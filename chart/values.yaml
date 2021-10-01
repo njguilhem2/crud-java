@@ -25,6 +25,9 @@ serviceAccount:
 
 podAnnotations: {}
 
+annotations: 
+  linkerd.io/inject: enabled
+
 podSecurityContext: {}
   # fsGroup: 2000
 
@@ -39,8 +42,6 @@ securityContext: {}
 service:
   type: ClusterIP
   port: 80
-  annotations: 
-    linkerd.io/inject: enabled
 
 ingress:
   enabled: true
