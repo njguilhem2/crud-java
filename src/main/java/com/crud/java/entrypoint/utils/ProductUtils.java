@@ -24,7 +24,7 @@ public class ProductUtils {
         throw new GlobalException("Preço tem que ser maior que Zero");
     }
     private static Boolean validatedDescription(String description){
-        if (ObjectUtils.isArray(description)){
+        if (!ObjectUtils.isEmpty(description)){
             return true;
         }
         throw new GlobalException("descrição não pode ser nula ou vazio");

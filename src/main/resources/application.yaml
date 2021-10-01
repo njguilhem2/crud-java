@@ -1,0 +1,12 @@
+server:
+  port: 8081
+management:
+  endpoints:
+    cors:
+      allowed-origins: "*"
+    web:
+      exposure:
+        include: "health"
+    endpoint:
+      health:
+        show-details: NEVER

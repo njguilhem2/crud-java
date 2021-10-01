@@ -8,6 +8,9 @@ import com.crud.java.entrypoint.dto.ProductDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+import java.util.stream.Collectors;
+
 @Service
 public class ProductService implements ProductServicePort {
 
@@ -21,5 +24,17 @@ public class ProductService implements ProductServicePort {
                 product.getPrice(),product.getDescription()));
         return new ProductDto(productService.getId(),
                 product.getName(),product.getPrice(),product.getDescription());
+    }
+
+    @Override
+    public List<ProductDto> findAllProduct() {
+        return productEntityServicePort.findAll().stream().map(product -> new ProductDto(
+                product.getId(),product.getName(),product.getPrice(),product.getDescription()
+        )).collect(Collectors.toList());
+    }
+
+    @Override
+    public void deleteProduct(Long id) {
+        productEntityServicePort.deleteProduct(id);
     }
 }
