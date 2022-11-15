@@ -15,7 +15,7 @@ public class ProductUtils {
         if (!ObjectUtils.isEmpty(name)){
             return true;
         }
-        throw new GlobalException("Nome inválido");
+        throw new GlobalException("file.not-found");
     }
     private static Boolean validatedPrice(Double price){
         if (price > 0){
